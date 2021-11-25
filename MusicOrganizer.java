@@ -107,4 +107,16 @@ public class MusicOrganizer
             System.out.println("No hay resultados con esta búsqueda");
         }
     }
+    
+    /**
+     * Reproduce los primeros segundos de todas la canciones
+     * de un determinado artista
+     */
+    public void playSamplesArtist(String artist) {
+        for(String filename : files) {
+            if(filename.contains(artist)) {
+                player.playSample(filename);
+            }
+        }
+    }
 }
