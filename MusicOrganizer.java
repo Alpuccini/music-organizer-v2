@@ -63,6 +63,25 @@ public class MusicOrganizer
             files.remove(index);
         }
     }
+    
+    /**
+     * Borra todas las canciones del organizador que contengan el
+     * texto indicado usando un bucle for-each
+     * 
+     * @param searchString
+     */
+    public void deleteSongWithText(String searchString) {
+        boolean error = true;
+        for (String filename : files) {
+            if(filename.contains(searchString)) {
+                files.remove(filename);
+                error = false;
+            }
+        }
+        if(error) {
+            System.out.println("No hay resultados que eliminar con esta búsqueda");
+        }
+    }
 
     /**
      * Start playing a file in the collection.
