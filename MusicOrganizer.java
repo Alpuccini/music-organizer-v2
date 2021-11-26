@@ -98,16 +98,18 @@ public class MusicOrganizer
      * List files with the string as parameter
      */
     public void listMatching(String searchString) {
-        if(files.contains(searchString)) {
-            for (String filename : files) {
+        boolean error = true;
+        for (String filename : files) {
+            if(filename.contains(searchString)) {
                 System.out.println(filename);
+                error = false;
             }
         }
-        else {
+        if(error) {
             System.out.println("No hay resultados con esta búsqueda");
         }
     }
-    
+
     /**
      * Reproduce los primeros segundos de todas la canciones
      * de un determinado artista
