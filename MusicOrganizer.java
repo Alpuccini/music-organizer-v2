@@ -117,7 +117,7 @@ public class MusicOrganizer
     public void listAllFiles() {
         int i = 0;
         while(i < files.size()) {
-            System.out.println(files.get(i));
+            System.out.println((i + 1) + ". " + files.get(i));
             i++;
         }
     }
