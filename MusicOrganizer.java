@@ -65,11 +65,18 @@ public class MusicOrganizer
     }
     
     /**
+     *
+     *  ----------------------------------------------------
+     * | ESTO NO SE DEBE HACER, YA QUE OCURRE UNA EXCEPCIÓN |
+     * | ELIMINANDO ARCHIVOS A TRAVÉS DE UN BUCLE FOR-EACH  |
+     *  ----------------------------------------------------
+     *  
+     *  
      * Borra todas las canciones del organizador que contengan el
      * texto indicado usando un bucle for-each
      * 
      * @param searchString
-     */
+     
     public void deleteSongWithText(String searchString) {
         boolean error = true;
         for (String filename : files) {
@@ -82,6 +89,8 @@ public class MusicOrganizer
             System.out.println("No hay resultados que eliminar con esta búsqueda");
         }
     }
+    
+    */
 
     /**
      * Start playing a file in the collection.
@@ -106,9 +115,9 @@ public class MusicOrganizer
      * List all files.
      */
     public void listAllFiles() {
-        int i = 1;
-        for (String filename : files) {
-            System.out.println(i + ". " + filename);
+        int i = 0;
+        while(i < files.size()) {
+            System.out.println(files.get(i));
             i++;
         }
     }
