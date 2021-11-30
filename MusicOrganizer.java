@@ -63,7 +63,7 @@ public class MusicOrganizer
             files.remove(index);
         }
     }
-    
+
     /**
      *
      *  ----------------------------------------------------
@@ -76,20 +76,21 @@ public class MusicOrganizer
      * texto indicado usando un bucle for-each
      * 
      * @param searchString
-     
+
     public void deleteSongWithText(String searchString) {
         boolean error = true;
         for (String filename : files) {
-            if(filename.contains(searchString)) {
-                files.remove(filename);
-                error = false;
+                if(filename.contains(searchString)) {
+                    files.remove(filename);
+                    error = false;
+                }
+            }
+            if(error) {
+                System.out.println("No hay resultados que eliminar con esta búsqueda");
             }
         }
-        if(error) {
-            System.out.println("No hay resultados que eliminar con esta búsqueda");
-        }
     }
-    
+
     */
 
     /**
@@ -148,5 +149,27 @@ public class MusicOrganizer
                 player.playSample(filename);
             }
         }
+    }
+
+    /**
+     * Localiza el índice del primer archivo que contiene
+     * la cadena de búsqueda indicada .
+     * @param searchString La cadena que hay que buscar.
+     * @return El índice de la primera aparición o -1 si
+     * no se encuentra ninguna correspondencia
+     */
+    public int findFirst(String searchString) {
+        boolean searching = true;
+        int i = 0;
+        int result = -1;
+        while(searching && i < files.size()) {
+            String filename = files.get(i);
+            if(filename.contains(searchString)) {
+                result = i;
+                searching = false;
+           }
+           i++;
+        }
+        return result;
     }
 }
