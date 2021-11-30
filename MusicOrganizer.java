@@ -159,14 +159,13 @@ public class MusicOrganizer
      * no se encuentra ninguna correspondencia
      */
     public int findFirst(String searchString) {
-        boolean searching = true;
         int i = 0;
         int result = -1;
-        while(searching && i < files.size()) {
+        while(i < files.size()) {
             String filename = files.get(i);
             if(filename.contains(searchString)) {
                 result = i;
-                searching = false;
+                i += 99999999;
            }
            i++;
         }
